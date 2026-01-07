@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #7c5cff33, transparent 60%),
+                  radial-gradient(circle at bottom, #38b26b33, transparent 60%),
+                  #0f1220;
+      color: #e6e9ff;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(60px, 12vw, 120px);
+      margin: 0;
+      line-height: 1;
+    }
+    p {
+      font-size: clamp(16px, 3vw, 22px);
+      margin: 12px 0 24px;
+      color: #8b92b7;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #7c5cff, #38b26b);
+      box-shadow: 0 6px 20px rgba(0,0,0,.3);
+      font-weight: 600;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    a.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(0,0,0,.45);
+    }
+    .emoji {
+      font-size: 48px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>404</h1>
+  <p>Oops! Ye page nahi mila 😕</p>
+  <a href="/about" class="btn">🏠 Back to About</a>
+  <div class="emoji">🚧</div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Shubham</title>
+  <meta name="description" content="About Shubham – student, builder, and lifelong learner.">
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: #151a2f;
+      --muted: #8b92b7;
+      --text: #e6e9ff;
+      --accent: #7c5cff;
+      --ring: rgba(124, 92, 255, 0.35);
+      --success: #38b26b;
+      --warn: #f5a524;
+      --danger: #ef476f;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f7ff;
+        --card: #ffffff;
+        --muted: #5a6180;
+        --text: #0e1220;
+        --accent: #5b39ff;
+        --ring: rgba(91,57,255,.25);
+        --shadow: 0 12px 28px rgba(18, 20, 40, .08);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -20%, rgba(124,92,255,.25), transparent 50%),
+                  radial-gradient(900px 500px at -10% 20%, rgba(56,178,107,.18), transparent 55%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 24px; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.2) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
+    .logo {
+      width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #38b26b);
+      display: grid; place-items: center; color: #fff; font-weight: 800; box-shadow: var(--shadow);
+    }
+    .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .links a {
+      text-decoration: none; color: var(--text); padding: 8px 12px; border-radius: 10px;
+      border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+    }
+    .links a:hover { border-color: var(--accent); box-shadow: 0 0 0 5px var(--ring) inset; }
+    .toggle { border: none; background: var(--card); color: var(--text); padding: 8px 12px; border-radius: 10px; cursor: pointer; }
+
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; margin-top: 28px; align-items: center; }
+    @media (max-width: 880px){ .hero{ grid-template-columns: 1fr; } }
+
+    .card { background: var(--card); border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: color-mix(in oklab, var(--accent) 18%, var(--card)); border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--card)); font-size: 12px; }
+
+    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 8px 0 10px; }
+    h2 { font-size: clamp(20px, 3vw, 28px); margin: 0; }
+    p.lead { font-size: clamp(14px, 2.2vw, 18px); color: var(--muted); margin: 10px 0 0; }
+
+    .avatar { width: 100%; aspect-ratio: 4/3; border-radius: 18px; overflow: hidden; position: relative; }
+    .avatar .glow { position: absolute; inset: 0; background: radial-gradient(600px 400px at 70% 10%, rgba(124,92,255,.35), transparent 45%),
+                                               radial-gradient(400px 300px at 20% 85%, rgba(56,178,107,.25), transparent 50%); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.08) contrast(1.03); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 920px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px){ .grid{ grid-template-columns: 1fr; } }
+
+    .stat { display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: center; }
+    .stat .num { font-weight: 800; font-size: 22px; }
+    .muted { color: var(--muted); font-size: 13px; }
+
+    .section { margin-top: 30px; }
+
+    .progress { height: 10px; background: color-mix(in oklab, var(--muted) 22%, var(--card)); border-radius: 999px; overflow: hidden; }
+    .bar { height: 100%; background: linear-gradient(90deg, var(--accent), #38b26b); width: var(--w, 70%); }
+
+    .kudos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 840px){ .kudos { grid-template-columns: 1fr; } }
+
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid color-mix(in oklab, var(--accent) 50%, var(--card)); background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 15%, var(--card)), var(--card)); box-shadow: var(--shadow); }
+    .btn:hover { box-shadow: 0 0 0 6px var(--ring); }
+
+    footer { margin: 48px 0 20px; color: var(--muted); font-size: 14px; text-align: center; }
+    .footer-links { display: inline-flex; gap: 12px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <span>Shubham</span>
+      </div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle theme">🌗</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="about">
+      <div class="card">
+        <span class="chip">नमस्ते! / Hello 👋</span>
+        <h1>मैं Shubham — Student, Web Dev Learner & Problem Solver</h1>
+        <p class="lead">Main seekhne, banane aur share karne mein believe karta/ti hoon. Right now I’m focusing on <strong>JavaScript, Node.js, and Android</strong>, with a goal to build clean, fast, and useful apps. Yeh page mera chhota sa space hai—jahaan aap mujhe aur meri journey ko jaan paayenge.</p>
+        <div class="section grid">
+          <div class="card stat">
+            <div class="num">02+</div>
+            <div>
+              <div><strong>Years Learning</strong></div>
+              <div class="muted">Self-taught & coursework</div>
+            </div>
+          </div>
+          <div class="card stat">
+            <div class="num">10+</div>
+            <div>
+              <div><strong>Mini Projects</strong></div>
+              <div class="muted">Web • Android • Scripts</div>
+            </div>
+          </div>
+          <div class="card stat">
+            <div class="num">∞</div>
+            <div>
+              <div><strong>Curiosity</strong></div>
+              <div class="muted">Roz kuch naya 🤓</div>
+            </div>
+          </div>
+        </div>
+        <div class="section" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn" href="#projects">See Projects →</a>
+          <a class="btn" href="#contact">Contact Me →</a>
+          <a class="btn" href="resume.pdf" download>Download Résumé ↧</a>
+        </div>
+      </div>
+      <div class="avatar card" aria-label="Profile image">
+        <div class="glow" aria-hidden="true"></div>
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Laptop, notebook, and coffee on a table – coding vibe" />
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section card" id="skills" aria-labelledby="skillsTitle">
+      <h2 id="skillsTitle">Skills / कौशल</h2>
+      <p class="muted">Tech stack I’m exploring & using.</p>
+      <div class="grid">
+        <div>
+          <strong>HTML • CSS</strong>
+          <div class="progress" aria-label="HTML/CSS proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+            <div class="bar" style="--w:85%"></div>
+          </div>
+        </div>
+        <div>
+          <strong>JavaScript (ES6+)</strong>
+          <div class="progress" aria-label="JavaScript proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+            <div class="bar" style="--w:75%"></div>
+          </div>
+        </div>
+        <div>
+          <strong>Node.js • Express</strong>
+          <div class="progress" aria-label="Node.js proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65">
+            <div class="bar" style="--w:65%"></div>
+          </div>
+        </div>
+        <div>
+          <strong>Android (XML • Kotlin basics)</strong>
+          <div class="progress" aria-label="Android proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+            <div class="bar" style="--w:60%"></div>
+          </div>
+        </div>
+        <div>
+          <strong>Git • GitHub</strong>
+          <div class="progress" aria-label="Git proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+            <div class="bar" style="--w:70%"></div>
+          </div>
+        </div>
+        <div>
+          <strong>Design Sense</strong>
+          <div class="progress" aria-label="Design proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55">
+            <div class="bar" style="--w:55%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section card" id="projects" aria-labelledby="projTitle">
+      <h2 id="projTitle">Selected Projects / प्रोजेक्ट्स</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 style="margin:0 0 8px;">SG Backend (Express v5)</h3>
+          <p class="muted">A learning repo where I’m building a simple API, fixing routing (path-to-regexp) and middleware in Express 5.</p>
+          <a class="btn" href="#">View Repo</a>
+        </article>
+        <article class="card">
+          <h3 style="margin:0 0 8px;">Android Layout Lab</h3>
+          <p class="muted">ConstraintLayout practice — responsive cards, percentages, and motion interactions.</p>
+          <a class="btn" href="#">Open Demo</a>
+        </article>
+        <article class="card">
+          <h3 style="margin:0 0 8px;">AI Experiments</h3>
+          <p class="muted">Small prompts, image/video ideas, and ComfyUI notes collected while experimenting.</p>
+          <a class="btn" href="#">Read Notes</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Timeline / Highlights -->
+    <section class="section card" aria-labelledby="journeyTitle">
+      <h2 id="journeyTitle">Journey / सफ़र</h2>
+      <div class="kudos">
+        <div class="card">
+          <h3 style="margin-top:0;">2025 — Focus</h3>
+          <p class="muted">Sharpening JavaScript + Express. Learning better project structure, error handling, and deployment basics.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">2024 — Android Basics</h3>
+          <p class="muted">XML layouts, RecyclerView, activities/fragments, and UI polish. Built a few simple screens.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section card" id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact / संपर्क</h2>
+      <p class="muted">Let’s build something cool together. Ping me 👇</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks! I will get back to you soon.');" aria-label="Contact form" style="display:grid; gap:12px; max-width:700px;">
+        <label>
+          Name
+          <input required type="text" name="name" placeholder="Your name" style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--muted) 25%, transparent); background:var(--card); color:var(--text); outline:none;" />
+        </label>
+        <label>
+          Email
+          <input required type="email" name="email" placeholder="you@example.com" style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--muted) 25%, transparent); background:var(--card); color:var(--text); outline:none;" />
+        </label>
+        <label>
+          Message
+          <textarea required name="message" rows="4" placeholder="How can I help?" style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--muted) 25%, transparent); background:var(--card); color:var(--text); outline:none;"></textarea>
+        </label>
+        <button class="btn" type="submit">Send Message ✉️</button>
+      </form>
+      <div class="section muted">
+        Or reach me at: <a href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-links" aria-label="Social links">
+        <a href="#">GitHub</a> ·
+        <a href="#">LinkedIn</a> ·
+        <a href="#">Twitter</a>
+      </div>
+      <div style="margin-top:10px;">© <span id="y"></span> Shubham. Built with ❤️ and chai.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Dark/Light theme toggle with localStorage
+    (function(){
+      const key = 'theme-preference';
+      const btn = document.getElementById('themeToggle');
+      const apply = (mode) => {
+        document.documentElement.style.colorScheme = mode;
+        if(mode === 'light'){
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.remove('light');
+        }
+        localStorage.setItem(key, mode);
+      };
+      const saved = localStorage.getItem(key);
+      if(saved) apply(saved);
+      btn.addEventListener('click', () => {
+        const current = localStorage.getItem(key) || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        apply(current === 'light' ? 'dark' : 'light');
+      });
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
